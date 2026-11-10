@@ -4,13 +4,13 @@
 // • Вхідний масив: [0, 10, 20, 30]
 // • Очікуваний результат: [32, 50, 68, 86]
 
-const celcie = [0, 10, 20, 30];
+// const celcie = [0, 10, 20, 30];
 
-const faringate = celcie.map(item => {
-  return item * 1.8 + 32;
-});
+// const faringate = celcie.map(item => {
+//   return item * 1.8 + 32;
+// });
 
-console.log(faringate);
+// console.log(faringate);
 
 // Умова: Маєте масив об'єктів користувачів. Перетворіть його на масив рядків, де кожен рядок містить повне ім'я та ID користувача у форматі: "Ім'я Прізвище (ID: id)".
 // • Вхідний масив:javascript
@@ -22,17 +22,17 @@ console.log(faringate);
 // Будьте обачні, використовуючи код.
 // • Очікуваний результат: ["Олена Петрів (ID: 1)", "Ігор Сидоренко (ID: 2)", "Анна Коваль (ID: 3)"]
 
-const users = [
-  { id: 1, firstName: 'Олена', lastName: 'Петрів' },
-  { id: 2, firstName: 'Ігор', lastName: 'Сидоренко' },
-  { id: 3, firstName: 'Анна', lastName: 'Коваль' },
-];
+// const users = [
+//   { id: 1, firstName: 'Олена', lastName: 'Петрів' },
+//   { id: 2, firstName: 'Ігор', lastName: 'Сидоренко' },
+//   { id: 3, firstName: 'Анна', lastName: 'Коваль' },
+// ];
 
-const usersString = users.map(item => {
-  return `${item.firstName} ${item.lastName} (ID: ${item.id})`;
-});
+// const usersString = users.map(item => {
+//   return `${item.firstName} ${item.lastName} (ID: ${item.id})`;
+// });
 
-console.log(usersString);
+// console.log(usersString);
 
 // Умова: Маєте масив об'єктів-товарів. Напишіть код, який за допомогою map() створює новий масив товарів, де для всіх товарів дорожчих за 100 одиниць застосовується знижка 10% (ціна множиться на 0.9). Округліть нову ціну до двох знаків після коми.
 // Важливо: не змінюйте оригінальний масив.
@@ -46,21 +46,96 @@ console.log(usersString);
 // Будьте обачні, використовуючи код.
 // • Очікуваний результат: Масив, де кросівки коштують 135, а куртка — 269.99 (інші товари залишаються без змін).
 
-const products = [
-  { name: 'Футболка', price: 50 },
-  { name: 'Кросівки', price: 150 },
-  { name: 'Куртка', price: 299.99 },
-  { name: 'Шкарпетки', price: 10 },
-];
+// const products = [
+//   { name: 'Футболка', price: 50 },
+//   { name: 'Кросівки', price: 150 },
+//   { name: 'Куртка', price: 299.99 },
+//   { name: 'Шкарпетки', price: 10 },
+// ];
 
-const productsDicreas = products.map(item => {
-  if (item.price > 100) {
-    return {
-      ...item,
-      price: +(item.price * 0.9).toFixed(2),
-    };
-  }
-  return item;
-});
+// const productsDicreas = products.map(item => {
+//   if (item.price > 100) {
+//     return {
+//       ...item,
+//       price: +(item.price * 0.9).toFixed(2),
+//     };
+//   }
+//   return item;
+// });
 
-console.log(productsDicreas);
+// console.log(productsDicreas);
+
+// 1. Фільтрація + Мапінг: Клуб "Тільки для дорослих"
+
+// Умова: Маєте масив гостей. Спочатку відфільтруйте лише тих, кому вже виповнилося 18 років. Після цього створіть новий масив, який містить лише їхні імена, переведені у ВЕЛИКИЙ РЕГІСТР (UPPERCASE).
+// • Вхідний масив:javascript
+// const guests = [
+//   { name: "Андрій", age: 17 },
+//   { name: "Марія", age: 22 },
+//   { name: "Олег", age: 15 },
+//   { name: "Катерина", age: 31 }
+// ];
+// Будьте обачні, використовуючи код.
+// • Очікуваний результат: ["МАРІЯ", "КАТЕРИНА"]
+
+// const guests = [
+//   { name: 'Андрій', age: 17 },
+//   { name: 'Марія', age: 22 },
+//   { name: 'Олег', age: 15 },
+//   { name: 'Катерина', age: 31 },
+// ];
+
+// const guestAge = guests
+//   .filter(item => item.age >= 18)
+//   .map(item => {
+//     return item.name.toUpperCase();
+//   });
+
+// console.log(guestAge);
+
+// 2. Пошук + Оновлення: Активація підписки
+
+// Умова: У вас є список користувачів. Вам потрібно знайти одного конкретного користувача за його id (наприклад, id: 102) і створити копію всього масиву, де у цього користувача статус isActive зміниться на true. Для пошуку використайте find або findIndex, а для створення нового масиву — map.
+// • Вхідний масив:javascript
+// const users = [
+//   { id: 101, name: "Іван", isActive: false },
+//   { id: 102, name: "Сергій", isActive: false },
+//   { id: 103, name: "Наталя", isActive: false }
+// ];
+// Будьте обачні, використовуючи код.
+// • Очікуваний результат: Масив, де у Сергія isActive: true, а решта користувачів не змінилися.
+
+// const users = [
+//   { id: 101, name: 'Іван', isActive: false },
+//   { id: 102, name: 'Сергій', isActive: false },
+//   { id: 103, name: 'Наталя', isActive: false },
+// ];
+// const userId = 102;
+
+// const userIndex = users.findIndex(item => item.id === userId);
+
+// const userUp = users.map((item, index) => {
+//   if (index === userIndex) {
+//     return {
+//       ...item,
+//       isActive: true,
+//     };
+//   }
+//   return item;
+// });
+
+// console.log(userUp);
+
+// 3. Фільтрація + Калькуляція: Підрахунок бюджету (Reduce)
+
+// Умова: Маєте список транзакцій за місяць. Спочатку залиште за допомогою filter тільки доходи (type: "income"). Потім за допомогою методу reduce порахуйте загальну суму цих доходів.
+// • Вхідний масив:javascript
+// const transactions = [
+//   { title: "Зарплата", amount: 1500, type: "income" },
+//   { title: "Продукти", amount: 200, type: "expense" },
+//   { title: "Кешбек", amount: 50, type: "income" },
+//   { title: "Оренда", amount: 500, type: "expense" }
+// ];
+// Будьте обачні, використовуючи код.
+// • Очікуваний результат: Число 1550
+// Яке завдання оберете для розв'язання? Напишіть свій варіант коду для будь-якого з них, і ми розберемо його разом!
